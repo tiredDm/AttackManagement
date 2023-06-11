@@ -1,0 +1,52 @@
+{% extends "header.html" %}
+{% block content %}
+
+
+<div class = main>
+
+<div class="row">
+    <div class="col">
+        
+
+        <form class= "form-base" action="" method="post">
+            <h1 class = "form-title" >CALCULATE</h1>
+            <p>Proper format is #d#.. 2d6 means rolling 2 six sided dice.</p>
+            <p>If you want to double the dice, type "true" in the "isCrit". box</p>
+            {{ form.csrf_token }}
+            <div class="form-group">
+                {{ form.damage.label(class="form-control-label green-text") }}
+                {{ form.damage(class="form-control form-control-md") }}
+
+                {% if form.damage.errors %}
+                <div class="alert alert-warning" role="alert">
+                    {% for error in form.damage.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.isCrit.label(class="form-control-label") }}
+                {{ form.isCrit(class="form-control form-control-lg") }}
+
+                {% if form.isCrit.errors %}
+                <div class="alert alert-warning" role="alert">
+                    {% for error in form.isCrit.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.submit(class="form-control form-control-lg") }}
+            </div>
+            {% if output%}
+            <p>Damage: {{output}}</p> 
+            {% endif %}
+        </form>
+        
+    </div>
+    
+</div>
+</div>
+{% endblock %}

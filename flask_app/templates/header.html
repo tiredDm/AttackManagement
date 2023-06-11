@@ -1,0 +1,90 @@
+
+{% block header %}
+
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <ul class="navbar-list">
+
+        {% if current_user.is_authenticated %}
+        <li class="navbar-item">
+            <a class="navbar-brand" href="{{ url_for('attacks.all', username=current_user.username ) }}">Attacks </a>
+        </li>
+        {% endif %}
+        <li class="navbar-item">
+            <a class="navbar-brand" href="{{ url_for('attacks.index') }}">Register-Attack </a>
+        </li>
+
+        <li class="navbar-item">
+            <a class="navbar-brand" href="{{ url_for('attacks.about') }}"> About </a>    
+        </li>
+        
+        <li class="navbar-item">
+            <a class="navbar-brand" href="{{ url_for('attacks.calculate') }}"> Calculate-Attack </a>        
+        </li>
+        
+        <li class="navbar-item">
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav ml-auto">
+                    {% if current_user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('users.account') }}">
+                            Account
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('users.logout') }}">
+                            Logout
+                        </a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('users.login') }}">
+                            Login
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('users.register') }}">
+                            Register
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </li>
+
+    </ul>
+    
+        
+    
+
+    
+</nav>
+
+
+<div class="container">
+    {% block content %}{% endblock %}
+</div>
+<!--
+<a class = "citation" href = "https://mini-moss.tumblr.com/post/667377949460381696/forever-twitter-instagram-print-shop"> from minimoss on tumblr </a> 
+-->
+<div  class="icon-base">
+   
+   <a href="https://www.linkedin.com/in/rohanpbalaji/" target="_blank">
+        <img class = "icon" src="../static/ln.png">
+   </a>
+    
+</div>
+
+<div class="icon-light">
+    <a href="https://www.linkedin.com/in/rohanpbalaji/" target="_blank">
+        <img class = "icon" src="../static/ln2.png">
+    </a>
+    
+</div>
+
+
+{% endblock %}

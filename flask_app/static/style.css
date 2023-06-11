@@ -1,0 +1,279 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+:root{
+    --order: 0
+}
+@keyframes slideInLeft{
+    from{
+        transform: translateX(-300px)
+    }
+
+    to{
+        transform: translate(0)
+    }
+}
+@keyframes descend{
+    from{
+        transform: translateY(-300px);
+        opacity: 0;
+    }
+
+    to{
+        transform: translate(0);
+        opacity: 1
+    }
+
+}
+
+@font-face{
+    font-family: '8-bitArcadeIn';
+    src: url('../static/8-bitArcadeIn.ttf');
+    font-size: 400;
+}
+@font-face {
+    font-family: 'Press Start 2P';
+    src: url('../static/PressStart2P.ttf');
+    font-weight: 400;
+} 
+
+
+.col{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.about-page{
+    animation: descend 1.5s ease forwards;
+    display: grid;
+    place-items: center;
+    background-color:#272a2e;
+    flex-direction: column;
+    border-radius: 30px;
+    padding: 20px;
+    border: 7px solid #286070;
+    width: 40vw;
+
+}
+
+
+.title{ 
+    color:#5cd0f1;
+    font-family: 'Press Start 2P', cursive, 'Courier New', Courier, monospace;
+    font-size: 30px;
+    background-color: #272a2e; 
+    border-radius: 30px;
+    padding: 15px;
+    border: 5px solid #5cd0f1;
+
+}
+
+
+
+.text{
+    color:white;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 15px;
+    
+}
+
+body{
+    /* 
+        background-image: url('../static/background.webp'); 
+        background-repeat: no-repeat;
+        background-size: cover;
+    */
+    background-color: #101318;
+    
+}
+
+
+
+
+.main{
+    margin-top: 3rem;
+    padding: 1rem;
+}
+
+
+
+
+/*The Base Nav */
+.navbar{
+    font-family: 'Press Start 2P', cursive;
+    
+    box-sizing: border-box;
+    margin: 0;
+    padding:0;
+    background-color:#272a2e;   
+    border-radius: 30px;
+    border: 5px solid #286070;
+}
+
+/* We gotta make a list for all the nav items..*/
+
+.navbar-list{ 
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 10px 10%; 
+   list-style: none;
+}
+
+
+
+/* This is the account settings*/
+.navbar-nav{ 
+    list-style: none;
+}
+
+/*Link Formatting*/
+li, a{
+    font-family: 'Press Start 2P', cursive;
+    color:aliceblue;
+    text-decoration: none;
+}
+
+.navbar-list li a{
+    transition: all 0.4s ease 0s;
+}
+
+.navbar-list li a:hover{
+    color:#5cd0f1;
+}
+
+.citation{
+    color:aliceblue;
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    justify-content:flex-end;
+    align-items:flex-end; 
+    padding: 10px;
+    transition: all 0.4s ease 0s;
+}
+
+.citation:hover{
+    color:#5cd0f1;
+}
+
+.form-base{
+    animation: descend 1.5s ease forwards;
+    display: flex;
+    align-items: center;
+    background-color:#272a2e;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border-radius: 30px;
+    padding: 20px;
+    border: 7px solid #286070;
+    width: 25vw;
+    height: 60vh;
+    color:white;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.account-input{
+    font-family: 'Press Start 2P', cursive;
+    color:white;
+    background-color:#272a2e;
+    border: 2px solid #286070;
+    border-radius: 30px;
+}
+
+
+.form-control{
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    height: 2rem;
+    border: 2px solid #286070;
+    background-color:#272a2e;
+    color:white;
+    font-family: 'Press Start 2P', cursive;
+    transition: all 0.125s ease 0s;
+}
+
+.form-control:hover {
+    border: 4px solid #5cd0f1;
+    color: #5cd0f1
+}
+
+.form-title{
+    color:#5cd0f1;
+    font-family: 'Press Start 2P', cursive, 'Courier New', Courier, monospace;
+    font-size: 30px;
+    background-color: #272a2e; 
+    border-radius: 30px;
+    padding: 15px;
+    border: 5px solid #5cd0f1;    
+}
+
+
+.login-register-link{
+    transition: all 0.3s ease 0s;
+}
+.login-register-link:hover{
+    color: #5cd0f1
+}
+
+.attacklist{
+    animation: slideInLeft 1.5s ease forwards;
+    /*animation-delay: calc(var(--order) * 100ms);*/
+    background-color: #272a2e; 
+    border-radius: 30px;
+    border: 3px solid #286070;
+    font-family: 'Press Start 2P', cursive;
+    color:white;
+    padding: 15px;
+    width:75vw;
+    transition: all 0.3s ease 0s;
+}
+
+.attacklist:hover{
+    color: #5cd0f1;
+    border: 3px solid #5cd0f1;
+    width:80vw;
+    padding: 19px;
+}
+
+/*icon links<transitions>... rise vertically, brighten, glow */
+.icon-base{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    justify-content:flex-end;
+    align-items:flex-end; 
+    padding: 10px;
+    transition: all 0.4s ease 0s;
+    flex-direction: row;
+}
+
+.icon-base:hover{
+    opacity: 0;
+}
+
+.icon-light{
+    flex-direction: row;
+    opacity:0;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    justify-content:flex-end;
+    align-items:flex-end; 
+    padding: 10px;
+    transition: all 0.4s ease 0s;
+}
+
+.icon-light:hover{
+    opacity:1;
+}
+
+.icon{
+    width:50px;
+    height:50px;
+}

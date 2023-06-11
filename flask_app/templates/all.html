@@ -1,0 +1,35 @@
+{% extends "header.html" %}
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head> 
+ 
+
+
+
+<div class = main>
+
+{% if error_msg %}
+    <p>{{ error_msg }}</p>
+{% endif %}
+
+
+
+
+
+<div class="container-fluid">
+    
+    {% for attack in attacks %}
+    <div class="attack">
+        <p class="attacklist {{loop.index1}}" >Attack#{{loop.index}}: {{attack.name}} | Damage type: {{attack.type}} | Damage: {{attack.damage}}  </p>
+    </div>
+    {% endfor %}
+
+
+</div>
+
+</div>
+
+
+
+{% endblock %}
