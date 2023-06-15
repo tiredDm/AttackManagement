@@ -1,5 +1,6 @@
 # 3rd-party packages
 from flask import Flask, render_template, request, redirect, url_for
+from flask_ngrok import run_with_ngrok
 from flask_mongoengine import MongoEngine
 from flask_talisman import Talisman
 from flask_login import (
@@ -11,6 +12,8 @@ from flask_login import (
 )
 from flask_bcrypt import Bcrypt
 from werkzeug.utils import secure_filename
+from waitress import serve
+
 
 # stdlib
 from datetime import datetime
@@ -33,8 +36,14 @@ def page_not_found(e):
     return render_template("404.html"), 404
 
 
+def __call__(self, environ, start_response):
+        start_response("200 OK", [("Content-type", "text/html"),('Content-Length', str(len(self.html)))])
+
+        return [self.html]
+
 def create_app(test_config=None):
     app = Flask(__name__)
+    run_with_ngrok(app)
     Talisman(app)
 
     app.config.from_pyfile("config.py", silent=False)
@@ -51,5 +60,6 @@ def create_app(test_config=None):
     app.register_error_handler(404, page_not_found)
 
     login_manager.login_view = "users.login"
+
 
     return app
